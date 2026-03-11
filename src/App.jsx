@@ -20,6 +20,12 @@ import {
 import img1 from '../media/1.jpg';
 import img2 from '../media/2.jpg';
 import img3 from '../media/3.jpg';
+import img4 from '../media/4.jpg';
+import img5 from '../media/5.jpg';
+import img6 from '../media/6.jpg';
+import img7 from '../media/7.jpg';
+import img8 from '../media/8.jpg';
+
 
 // --- CONFIGURATION START ---
 const GOOGLE_FORM_CONFIG = {
@@ -201,7 +207,7 @@ const TRANSLATIONS = {
 };
 
 // Исправленные пути к изображениям (из папки public/media)
-const IMAGES = [img1, img2, img3];;
+const IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8];;
 
 const DRESS_COLORS = [
   { 
