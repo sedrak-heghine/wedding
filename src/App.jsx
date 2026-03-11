@@ -624,7 +624,7 @@ const App = () => {
             </div>
             <TypingText text={t.inviteText} className="text-xl md:text-2xl font-light leading-relaxed text-[#4A4A4A]/80 drop-shadow-sm" delay={0.8} />
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 2.2, duration: 1.2 }} className="text-lg italic font-light text-[#B4A38D] drop-shadow-sm">{t.inviteFooter}</motion.p>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 2.8, duration: 1 }} className="pt-4"><p className="text-sm tracking-[0.3em] font-bold text-[#4A4A4A] drop-shadow-sm"> — {t.names}</p></motion.div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 2.8, duration: 1 }} className="pt-4"><p className="text-sm tracking-[0.3em] font-bold text-[#4A4A4A] drop-shadow-sm"></p></motion.div>
           </div>
         </div>
       </Section>
