@@ -36,6 +36,10 @@ import cimg6 from '../media/cl6.jpeg';
 import cimg7 from '../media/cl7.jpeg';
 import cimg8 from '../media/cl8.jpeg';
 
+// --- Location ---
+
+import limg1 from '../media/l1.jpeg';
+import limg2 from '../media/l2.jpeg';
 
 // --- CONFIGURATION START ---
 const GOOGLE_FORM_CONFIG = {
@@ -149,10 +153,10 @@ const TRANSLATIONS = {
     navLocation: "Location",
     navRsvp: "RSVP",
     dressColors: [
-      { name: "Olive", description: "A muted, earthy green shade resembling natural olive leaves." },
-      { name: "Caramel", description: "A pale, dusty pink hue with a soft, warm undertone." },
-      { name: "Cocoa", description: "A light, airy blue color reminiscent of a clear summer sky." },
-      { name: "Honey", description: "A soft, pale purple shade with delicate floral hues." }
+      { name: "Olive" },
+      { name: "Caramel" },
+      { name: "Cocoa" },
+      { name: "Honey" }
     ]
   },
   hy: {
@@ -202,10 +206,10 @@ const TRANSLATIONS = {
     navLocation: "Վայր",
     navRsvp: "RSVP",
     dressColors: [
-      { name: "Ձիթապտուղի", description: "Խամրած, հողեղեն կանաչ երանգ՝ ձիթենու տերևների բնական գույնով:" },
-      { name: "Կարամել", description: "Գունատ, փոշոտ վարդագույն՝ մեղմ, ջերմ նրբերանգով:" },
-      { name: "Կակաո", description: "Սերուցքային, ոսկեգույն բեժ երանգ, որը շողում է լույսի ներքո:" },
-      { name: "Մեղր", description: "Թեթև, եթերային կապույտ գույն՝ ամառային պարզ երկնքի նման:" }
+      { name: "Ձիթապտուղ" },
+      { name: "Կարամել" },
+      { name: "Կակաո" },
+      { name: "Մեղր" }
     ]
   },
   ru: {
@@ -255,10 +259,10 @@ const TRANSLATIONS = {
     navLocation: "Локация",
     navRsvp: "RSVP",
     dressColors: [
-      { name: "Оливково-зеленый", description: "Приглушенный землистый оттенок зеленого, напоминающий натуральные листья оливы." },
-      { name: "Нежно-розовый", description: "Бледный, припыленный розовый оттенок с мягким, теплым подтоном." },
-      { name: "Шампань", description: "Сливочный, золотисто-бежевый тон, мерцающий на свету." },
-      { name: "Небесно-голубой", description: "Легкий, воздушный синий цвет, напоминающий ясное летнее небо." }
+      { name: "Оливковый" },
+      { name: "Карамель" },
+      { name: "Какао" },
+      { name: "Мёд" }
     ]
   }
 };
@@ -804,8 +808,8 @@ const App = () => {
           <p className="text-lg text-[#4A4A4A]/70 font-light drop-shadow-sm">{t.whenWhereSubtitle}</p>
         </motion.div>
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <FlipCard title={t.ceremony} time="04:00 PM | 16:00" locationName={t.locationCeremony} mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3043.431206148383!2d44.3861218!3d40.339488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40156372d8e3b3ef%3A0xc3c9489608d0a0d4!2sOhanavank!5e0!3m2!1sen!2sam!4v1700000000000!5m2!1sen!2sam" navigateUrl="https://maps.app.goo.gl/TpTfwyUMEfWHEJij7" imageSrc="https://images.unsplash.com/photo-1549112215-6091216791-a5360b5fc78a?auto=format&fit=crop&q=80&w=1000" t={t} />
-          <FlipCard title={t.reception} time="05:30 PM | 17:30" locationName={t.locationReception} mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.2426466986514!2d44.183422476595854!3d40.2981081627376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4015629c490a604f%3A0xc6c7669d251d1020!2sLazur%20Restaurant!5e0!3m2!1sen!2sam!4v1700000000001!5m2!1sen!2sam" navigateUrl="https://maps.app.goo.gl/aN7tHkeDMxsKdRGf6" imageSrc="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000" t={t} />
+          <FlipCard title={t.ceremony} time="04:00 PM | 16:00" locationName={t.locationCeremony} mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3043.431206148383!2d44.3861218!3d40.339488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40156372d8e3b3ef%3A0xc3c9489608d0a0d4!2sOhanavank!5e0!3m2!1sen!2sam!4v1700000000000!5m2!1sen!2sam" navigateUrl="https://maps.app.goo.gl/TpTfwyUMEfWHEJij7" imageSrc={limg1} t={t} />
+          <FlipCard title={t.reception} time="05:30 PM | 17:30" locationName={t.locationReception} mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.2426466986514!2d44.183422476595854!3d40.2981081627376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4015629c490a604f%3A0xc6c7669d251d1020!2sLazur%20Restaurant!5e0!3m2!1sen!2sam!4v1700000000001!5m2!1sen!2sam" navigateUrl="https://maps.app.goo.gl/aN7tHkeDMxsKdRGf6" imageSrc={limg2} t={t} />
         </div>
       </Section>
 
