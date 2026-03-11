@@ -27,14 +27,14 @@ import img7 from '../media/7.jpg';
 import img8 from '../media/8.jpg';
 
 // --- Colors ---
-import cimg1 from '../media/cl1.jpg';
-import cimg2 from '../media/cl2.jpg';
-import cimg3 from '../media/cl3.jpg';
-import cimg4 from '../media/cl4.jpg';
-import cimg5 from '../media/cl5.jpg';
-import cimg6 from '../media/cl6.jpg';
-import cimg7 from '../media/cl7.jpg';
-import cimg8 from '../media/cl8.jpg';
+import cimg1 from '../media/cl1.jpeg';
+import cimg2 from '../media/cl2.jpeg';
+import cimg3 from '../media/cl3.jpeg';
+import cimg4 from '../media/cl4.jpeg';
+import cimg5 from '../media/cl5.jpeg';
+import cimg6 from '../media/cl6.jpeg';
+import cimg7 from '../media/cl7.jpeg';
+import cimg8 from '../media/cl8.jpeg';
 
 
 // --- CONFIGURATION START ---
