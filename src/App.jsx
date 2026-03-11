@@ -281,7 +281,7 @@ const DRESS_COLORS = [
     images: [cimg7, cimg8]
   },
   { 
-    hex: "#F7E7CE", 
+    hex: "#7e6454", 
     images: [cimg5, cimg6]
   },
   { 
