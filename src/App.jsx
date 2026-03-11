@@ -26,6 +26,16 @@ import img6 from '../media/6.jpg';
 import img7 from '../media/7.jpg';
 import img8 from '../media/8.jpg';
 
+// --- Colors ---
+import cimg1 from '../media/cl1.jpg';
+import cimg2 from '../media/cl2.jpg';
+import cimg3 from '../media/cl3.jpg';
+import cimg4 from '../media/cl4.jpg';
+import cimg5 from '../media/cl5.jpg';
+import cimg6 from '../media/cl6.jpg';
+import cimg7 from '../media/cl7.jpg';
+import cimg8 from '../media/cl8.jpg';
+
 
 // --- CONFIGURATION START ---
 const GOOGLE_FORM_CONFIG = {
@@ -139,13 +149,10 @@ const TRANSLATIONS = {
     navLocation: "Location",
     navRsvp: "RSVP",
     dressColors: [
-      { name: "Olive Green", description: "A muted, earthy green shade resembling natural olive leaves." },
-      { name: "Blush Pink", description: "A pale, dusty pink hue with a soft, warm undertone." },
-      { name: "Champagne", description: "A creamy, golden beige tone that shimmers in the light." },
-      { name: "Sky Blue", description: "A light, airy blue color reminiscent of a clear summer sky." },
-      { name: "Lavender", description: "A soft, pale purple shade with delicate floral hues." },
-      { name: "Navy Blue", description: "A rich, deep blue color providing strong contrast and elegance." },
-      { name: "Black", description: "A solid, deep black tone for a sharp, timeless silhouette." }
+      { name: "Olive", description: "A muted, earthy green shade resembling natural olive leaves." },
+      { name: "Caramel", description: "A pale, dusty pink hue with a soft, warm undertone." },
+      { name: "Cocoa", description: "A light, airy blue color reminiscent of a clear summer sky." },
+      { name: "Honey", description: "A soft, pale purple shade with delicate floral hues." }
     ]
   },
   hy: {
@@ -195,13 +202,10 @@ const TRANSLATIONS = {
     navLocation: "Վայր",
     navRsvp: "RSVP",
     dressColors: [
-      { name: "Ձիթապտղի Կանաչ", description: "Խամրած, հողեղեն կանաչ երանգ՝ ձիթենու տերևների բնական գույնով:" },
-      { name: "Նուրբ Վարդագույն", description: "Գունատ, փոշոտ վարդագույն՝ մեղմ, ջերմ նրբերանգով:" },
-      { name: "Շամպայն", description: "Սերուցքային, ոսկեգույն բեժ երանգ, որը շողում է լույսի ներքո:" },
-      { name: "Երկնագույն", description: "Թեթև, եթերային կապույտ գույն՝ ամառային պարզ երկնքի նման:" },
-      { name: "Լավանդա", description: "Մեղմ, գունատ մանուշակագույն՝ նուրբ ծաղկային երանգներով:" },
-      { name: "Մուգ Կապույտ", description: "Հարուստ, մուգ կապույտ գույն՝ խորը հակադրությամբ և նրբագեղությամբ:" },
-      { name: "Սև", description: "Խորը, միատոն սև երանգ՝ ընդգծված, անժամանակ ուրվագծի համար:" }
+      { name: "Ձիթապտուղի", description: "Խամրած, հողեղեն կանաչ երանգ՝ ձիթենու տերևների բնական գույնով:" },
+      { name: "Կարամել", description: "Գունատ, փոշոտ վարդագույն՝ մեղմ, ջերմ նրբերանգով:" },
+      { name: "Կակաո", description: "Սերուցքային, ոսկեգույն բեժ երանգ, որը շողում է լույսի ներքո:" },
+      { name: "Մեղր", description: "Թեթև, եթերային կապույտ գույն՝ ամառային պարզ երկնքի նման:" }
     ]
   },
   ru: {
@@ -254,10 +258,7 @@ const TRANSLATIONS = {
       { name: "Оливково-зеленый", description: "Приглушенный землистый оттенок зеленого, напоминающий натуральные листья оливы." },
       { name: "Нежно-розовый", description: "Бледный, припыленный розовый оттенок с мягким, теплым подтоном." },
       { name: "Шампань", description: "Сливочный, золотисто-бежевый тон, мерцающий на свету." },
-      { name: "Небесно-голубой", description: "Легкий, воздушный синий цвет, напоминающий ясное летнее небо." },
-      { name: "Лаванда", description: "Мягкий, бледный фиолетовый оттенок с нежными цветочными нотками." },
-      { name: "Темно-синий", description: "Насыщенный глубокий синий цвет, обеспечивающий сильный контраст и элегантность." },
-      { name: "Черный", description: "Глубокий однотонный черный цвет для создания четкого, неподвластного времени силуэта." }
+      { name: "Небесно-голубой", description: "Легкий, воздушный синий цвет, напоминающий ясное летнее небо." }
     ]
   }
 };
@@ -272,53 +273,20 @@ const IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 const DRESS_COLORS = [
   { 
-    hex: "#B2AC88", 
-    images: [
-      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000"
-    ]
+    hex: "#97936d", 
+    images: [cimg3, cimg4]
   },
   { 
-    hex: "#EBC7C2", 
-    images: [
-      "https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&q=80&w=1000"
-    ]
+    hex: "#a04913", 
+    images: [cimg7, cimg8]
   },
   { 
     hex: "#F7E7CE", 
-    images: [
-      "https://images.unsplash.com/photo-1568252542512-9fe8fe9c87bb?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&q=80&w=1000"
-    ]
+    images: [cimg5, cimg6]
   },
   { 
-    hex: "#AED9E0", 
-    images: [
-      "https://images.unsplash.com/photo-1518933165971-611dbc9c412d?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=1000"
-    ]
-  },
-  { 
-    hex: "#E6E6FA", 
-    images: [
-      "https://images.unsplash.com/photo-1616091216791-a5360b5fc78a?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=1000"
-    ]
-  },
-  { 
-    hex: "#1B2431", 
-    images: [
-      "https://images.unsplash.com/photo-1594819047050-99defca82545?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1598808503746-f34c53b9323e?auto=format&fit=crop&q=80&w=1000"
-    ]
-  },
-  { 
-    hex: "#000000", 
-    images: [
-      "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?auto=format&fit=crop&q=80&w=1000"
-    ]
+    hex: "#e1c881", 
+    images: [cimg1, cimg2]
   }
 ];
 
