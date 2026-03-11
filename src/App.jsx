@@ -41,6 +41,10 @@ import cimg8 from '../media/cl8.jpeg';
 import limg1 from '../media/l1.jpeg';
 import limg2 from '../media/l2.jpeg';
 
+// --- Decor ---
+import dimg1 from '../media/d1.jpeg';
+import dimg2 from '../media/d2.jpeg'
+
 // --- CONFIGURATION START ---
 const GOOGLE_FORM_CONFIG = {
   FORM_URL: "https://docs.google.com/forms/d/e/1FAIpQLSeaof8tAasaY9MacZQC0LT3cW_iSrsti7DIRfC_qqo5KG-eSg/formResponse", 
@@ -609,7 +613,7 @@ const App = () => {
       <Section id="invitation" ref={nextSectionRef} className="bg-white group/invite" onMouseEnter={() => setIsInviteHovered(true)} onMouseLeave={() => setIsInviteHovered(false)}>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] md:h-[500px]">
-            <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&q=80&w=1000" alt="Hands together" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"/>
+            <img src={dimg2} alt="Hands together" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"/>
           </motion.div>
           <div className="text-left space-y-6">
             <Heart className="text-[#B4A38D] mb-4 drop-shadow-sm" fill="#B4A38D" size={24} />
@@ -993,8 +997,13 @@ const App = () => {
       <style>{`
         @keyframes gradient-slow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .animate-gradient-slow { background-size: 200% 200%; animation: gradient-slow 16s ease infinite; }
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Armenian:wght@400;600;700&display=swap');
-        body { font-family: 'Playfair Display', 'Noto Serif Armenian', serif; }
+        
+        /* ОБНОВЛЕННЫЙ ИМПОРТ ШРИФТОВ СО ВСЕМИ ВЕСАМИ */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+        
+        /* ПРИМЕНЕНИЕ КО ВСЕМ ЭЛЕМЕНТАМ ДЛЯ НАДЕЖНОСТИ НА МОБИЛЬНЫХ */
+        body, html, * { font-family: 'Playfair Display', 'Noto Serif Armenian', serif; }
+        
         .elegant-number { font-family: 'Playfair Display', 'Noto Serif Armenian', serif; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
         .gradient-text { background: linear-gradient(135deg, #B4A38D 0%, #D4C3AD 50%, #B4A38D 100%); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
         .gradient-text:hover { background: linear-gradient(135deg, #8E9775 0%, #A4AF88 50%, #8E9775 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
