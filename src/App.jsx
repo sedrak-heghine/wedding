@@ -17,6 +17,10 @@ import {
   Loader2
 } from 'lucide-react';
 
+import img1 from '../media/1.jpg';
+import img2 from '../media/2.jpg';
+import img3 from '../media/3.jpg';
+
 // --- CONFIGURATION START ---
 const GOOGLE_FORM_CONFIG = {
   FORM_URL: "https://docs.google.com/forms/d/e/1FAIpQLSeaof8tAasaY9MacZQC0LT3cW_iSrsti7DIRfC_qqo5KG-eSg/formResponse", 
@@ -197,11 +201,7 @@ const TRANSLATIONS = {
 };
 
 // Исправленные пути к изображениям (из папки public/media)
-const IMAGES = [
-  "/media/1.jpg",
-  "/media/2.jpg",
-  "/media/3.jpg"
-];
+const IMAGES = [img1, img2, img3];;
 
 const DRESS_COLORS = [
   { 
