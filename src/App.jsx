@@ -591,7 +591,7 @@ const App = () => {
           </motion.div>
         </AnimatePresence>
         <motion.div style={{ opacity: opacityFade }} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.5, delay: 0.5 }} className="relative z-20 text-center text-white px-4 pointer-events-none">
-          <p className="uppercase tracking-[0.4em] mb-6 text-sm font-light drop-shadow-md">{t.saveTheDate}</p>
+          <p className="uppercase tracking-[0.4em] mb-6 text-sm font-light drop-shadow-md"></p>
           <h1 className="text-6xl md:text-8xl font-light mb-8 leading-normal italic gradient-text transition-all duration-700 drop-shadow-lg pb-2">{t.names}</h1>
           <motion.div style={{ width: expandingLineWidth }} className="h-[2px] bg-gradient-to-r from-transparent via-white/60 to-transparent mx-auto mb-8 rounded-full shadow-md" />
           <p className="text-2xl md:text-3xl font-light tracking-widest uppercase elegant-number gradient-text transition-all duration-700 drop-shadow-md">20.06.2026</p>
