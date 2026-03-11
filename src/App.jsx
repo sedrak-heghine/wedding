@@ -544,7 +544,7 @@ const App = () => {
   const availableLangs = ['en', 'hy', 'ru'].filter(l => l !== lang);
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#4A4A4A] overflow-x-hidden" style={{ fontFamily: "'Playfair Display', serif" }}>
+    <div className="min-h-screen bg-[#FAF9F6] text-[#4A4A4A] overflow-x-hidden" style={{ fontFamily: "'Playfair Display', 'Noto Serif Armenian', serif" }}>
       
       <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 transition-all duration-500 bg-white/30 backdrop-blur-md border-b border-white/20 shadow-sm">
         <motion.button 
@@ -716,8 +716,16 @@ const App = () => {
             </div>
             <div className="flex flex-wrap gap-4 pt-4">
               {DRESS_COLORS.map((color, index) => (
-                <motion.button key={index} onClick={() => setActiveDressIndex(index)} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className={`w-14 h-14 rounded-full border-2 transition-all duration-500 shadow-md relative ${activeDressIndex === index ? 'border-[#B4A38D] p-1 scale-110 shadow-lg' : 'border-white'}`} style={{ backgroundColor: color.hex }}>
-                  {activeDressIndex === index && <motion.div layoutId="activeCircle" className="absolute inset-0 rounded-full border-2 border-white pointer-events-none" />}
+                <motion.button 
+                  key={index} 
+                  onClick={() => setActiveDressIndex(index)} 
+                  whileHover={{ scale: 1.1 }} 
+                  whileTap={{ scale: 0.9 }} 
+                  animate={{ scale: activeDressIndex === index ? 1.1 : 1 }}
+                  className={`w-14 h-14 rounded-full border-2 transition-colors duration-500 shadow-md relative ${activeDressIndex === index ? 'border-[#B4A38D] shadow-lg' : 'border-white'}`} 
+                  style={{ backgroundColor: color.hex }}
+                >
+                  {activeDressIndex === index && <motion.div layoutId="activeCircle" className="absolute inset-1 rounded-full border-2 border-white pointer-events-none" />}
                 </motion.button>
               ))}
             </div>
@@ -769,11 +777,11 @@ const App = () => {
                 >
                   <ChevronRight size={20} />
                 </motion.button>
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 items-center z-20">
                   {DRESS_COLORS[activeDressIndex].images.map((_, idx) => (
                     <div 
                       key={idx}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 shadow-sm ${idx === currentCarouselIndex ? 'bg-white w-4' : 'bg-white/50'}`}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 shadow-sm origin-center ${idx === currentCarouselIndex ? 'bg-white scale-[1.7]' : 'bg-white/50'}`}
                     />
                   ))}
                 </div>
@@ -985,9 +993,9 @@ const App = () => {
       <style>{`
         @keyframes gradient-slow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .animate-gradient-slow { background-size: 200% 200%; animation: gradient-slow 16s ease infinite; }
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap');
-        body { font-family: 'Playfair Display', serif; }
-        .elegant-number { font-family: 'Playfair Display', serif; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Armenian:wght@400;600;700&display=swap');
+        body { font-family: 'Playfair Display', 'Noto Serif Armenian', serif; }
+        .elegant-number { font-family: 'Playfair Display', 'Noto Serif Armenian', serif; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
         .gradient-text { background: linear-gradient(135deg, #B4A38D 0%, #D4C3AD 50%, #B4A38D 100%); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
         .gradient-text:hover { background: linear-gradient(135deg, #8E9775 0%, #A4AF88 50%, #8E9775 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .perspective-1000 { perspective: 1000px; }
