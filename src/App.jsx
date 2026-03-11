@@ -203,11 +203,67 @@ const TRANSLATIONS = {
       { name: "Մուգ Կապույտ", description: "Հարուստ, մուգ կապույտ գույն՝ խորը հակադրությամբ և նրբագեղությամբ:" },
       { name: "Սև", description: "Խորը, միատոն սև երանգ՝ ընդգծված, անժամանակ ուրվագծի համար:" }
     ]
+  },
+  ru: {
+    names: "Седрак и Эгине",
+    date: "20 Июня 2026",
+    saveTheDate: "Сохраните дату",
+    countdownTitle: "До нашей свадьбы осталось",
+    ceremony: "Венчание",
+    reception: "Свадебный банкет",
+    locationCeremony: "Монастырь Ованаванк, Оганаван",
+    locationReception: "Ресторан Лазур, Уджан",
+    navigate: "Маршрут",
+    contact: "Связаться с нами",
+    days: "Дней",
+    hours: "Часов",
+    minutes: "Минут",
+    seconds: "Секунд",
+    inviteTitle: "Вы приглашены!",
+    inviteText: "С огромной радостью приглашаем вас стать частью этого особенного дня, когда мы начинаем наш совместный путь. Присоединяйтесь к нам, чтобы разделить любовь, радость и моменты, которые мы сохраним навсегда.",
+    inviteFooter: "Ваше присутствие очень много значит для нас.",
+    rsvp: "Подтвердить присутствие",
+    rsvpSectionTitle: "R.S.V.P.",
+    rsvpSubtitle: "Для нас будет большой честью видеть вас. Пожалуйста, сообщите нам, сможете ли вы прийти.",
+    nameLabel: "Имя и Фамилия",
+    emailLabel: "Эл. почта",
+    phoneLabel: "Номер телефона",
+    guestsLabel: "Количество гостей",
+    messageLabel: "Сообщение (Имена, Вопросы)",
+    guestOptionCustom: "Другое (Укажите в сообщении)",
+    submitButton: "Отправить ответ",
+    submitting: "Отправка...",
+    errorTitle: "Что-то пошло не так",
+    errorMessage: "Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.",
+    thankYouMessage: "Спасибо! С нетерпением ждем встречи с вами.",
+    footerNote: "Мы очень рады отпраздновать наш особенный день вместе с вами!",
+    copyright: "© 2026 Седрак и Эгине. Все права защищены.",
+    footerEmail: "Эл. почта",
+    dressCodeTitle: "Дресс-код",
+    dressCodeSubtitle: "Мы приглашаем гостей выбрать элегантный, но удобный наряд. Мягкие, пастельные тона и светлые оттенки будут особенно красивы на нашем празднике. Дамы могут выбрать платья или комбинезоны, а джентльмены — классические рубашки и брюки. Самое главное — чтобы вы чувствовали себя комфортно и уверенно.",
+    dressCodeNote: "Выберите цвет для вдохновения",
+    sedrak: "Седрак",
+    heghine: "Эгине",
+    whenWhereTitle: "Когда и где?",
+    whenWhereSubtitle: "Нажмите на карточки, чтобы увидеть карту",
+    navInvitation: "Приглашение",
+    navDressCode: "Дресс-код",
+    navLocation: "Локация",
+    navRsvp: "RSVP",
+    dressColors: [
+      { name: "Оливково-зеленый", description: "Приглушенный землистый оттенок зеленого, напоминающий натуральные листья оливы." },
+      { name: "Нежно-розовый", description: "Бледный, припыленный розовый оттенок с мягким, теплым подтоном." },
+      { name: "Шампань", description: "Сливочный, золотисто-бежевый тон, мерцающий на свету." },
+      { name: "Небесно-голубой", description: "Легкий, воздушный синий цвет, напоминающий ясное летнее небо." },
+      { name: "Лаванда", description: "Мягкий, бледный фиолетовый оттенок с нежными цветочными нотками." },
+      { name: "Темно-синий", description: "Насыщенный глубокий синий цвет, обеспечивающий сильный контраст и элегантность." },
+      { name: "Черный", description: "Глубокий однотонный черный цвет для создания четкого, неподвластного времени силуэта." }
+    ]
   }
 };
 
 // Исправленные пути к изображениям (из папки public/media)
-const IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8];;
+const IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 const DRESS_COLORS = [
   { 
@@ -449,7 +505,15 @@ const App = () => {
   const yParallax = useTransform(scrollYProgress, [0, 0.5], [0, 200]);
   const opacityFade = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-  const toggleLang = () => setLang(prev => prev === 'en' ? 'hy' : 'en');
+  // Измененная логика для цикличного переключения между 3 языками
+  const toggleLang = () => {
+    setLang(prev => {
+      if (prev === 'en') return 'hy';
+      if (prev === 'hy') return 'ru';
+      return 'en';
+    });
+  };
+
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const nextSlide = () => {
@@ -530,7 +594,7 @@ const App = () => {
 
         <div className="flex items-center gap-6">
           <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={toggleLang} className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#B4A38D] text-sm tracking-widest hover:bg-[#B4A38D] hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
-            <Globe size={14} />{lang === 'en' ? 'ՀԱՅ' : 'ENG'}
+            <Globe size={14} />{lang === 'en' ? 'ՀԱՅ' : lang === 'hy' ? 'РУС' : 'ENG'}
           </motion.button>
         </div>
       </nav>
