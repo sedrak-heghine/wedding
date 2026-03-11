@@ -17,17 +17,10 @@ import {
   Loader2
 } from 'lucide-react';
 
-import hero1 from '@media/1.jpg';
-import hero2 from '@media/2.jpg';
-import hero3 from '@media/3.jpg';
-
 // --- CONFIGURATION START ---
-// ԽՆԴՐՈՒՄ ԵՆՔ ԼՐԱՑՆԵԼ ԱՅՍ ՀԱՏՎԱԾԸ (Տես instructions.md)
 const GOOGLE_FORM_CONFIG = {
-  // Ձեր տրամադրած Form URL-ը (արդեն փոխված է formResponse-ի)
   FORM_URL: "https://docs.google.com/forms/d/e/1FAIpQLSeaof8tAasaY9MacZQC0LT3cW_iSrsti7DIRfC_qqo5KG-eSg/formResponse", 
   
-  // ԱՅՍՏԵՂ ՊԵՏՔ Է ԳՐԵՔ ՁԵՐ ID-ները (Entry IDs)
   ENTRY_IDS: {
     name: "entry.686102756",    // Full Name
     email: "entry.77866150",   // Email
@@ -203,6 +196,7 @@ const TRANSLATIONS = {
   }
 };
 
+// Исправленные пути к изображениям (из папки public/media)
 const IMAGES = [
   "/media/1.jpg",
   "/media/2.jpg",
@@ -469,7 +463,6 @@ const App = () => {
     setSubmitError(false);
 
     const formData = new FormData();
-    // Map our state fields to Google Form Entry IDs
     formData.append(GOOGLE_FORM_CONFIG.ENTRY_IDS.name, formState.name);
     formData.append(GOOGLE_FORM_CONFIG.ENTRY_IDS.email, formState.email);
     formData.append(GOOGLE_FORM_CONFIG.ENTRY_IDS.phone, formState.phone);
@@ -477,14 +470,12 @@ const App = () => {
     formData.append(GOOGLE_FORM_CONFIG.ENTRY_IDS.message, formState.message);
 
     try {
-      // mode: 'no-cors' is critical for client-side Google Form submission
       await fetch(GOOGLE_FORM_CONFIG.FORM_URL, {
         method: 'POST',
         mode: 'no-cors',
         body: formData
       });
       
-      // Artificial delay to show spinner and ensure UX smoothness
       setTimeout(() => {
         setIsSubmitting(false);
         setIsSubmitted(true);
@@ -505,7 +496,7 @@ const App = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -80; // Adjust for fixed header height
+      const yOffset = -80; 
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
@@ -524,7 +515,6 @@ const App = () => {
           {t.names}
         </motion.button>
         
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase font-light text-[#4A4A4A]/80 drop-shadow-sm">
           <button onClick={() => scrollToSection('invitation')} className="hover:text-[#B4A38D] transition-colors">{t.navInvitation}</button>
           <button onClick={() => scrollToSection('dresscode')} className="hover:text-[#B4A38D] transition-colors">{t.navDressCode}</button>
@@ -549,7 +539,6 @@ const App = () => {
         <motion.div style={{ opacity: opacityFade }} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.5, delay: 0.5 }} className="relative z-20 text-center text-white px-4 pointer-events-none">
           <p className="uppercase tracking-[0.4em] mb-6 text-sm font-light drop-shadow-md">{t.saveTheDate}</p>
           <h1 className="text-6xl md:text-8xl font-light mb-8 leading-normal italic gradient-text transition-all duration-700 drop-shadow-lg pb-2">{t.names}</h1>
-          {/* Hero Line: Added gradient fading edges */}
           <motion.div style={{ width: expandingLineWidth }} className="h-[2px] bg-gradient-to-r from-transparent via-white/60 to-transparent mx-auto mb-8 rounded-full shadow-md" />
           <p className="text-2xl md:text-3xl font-light tracking-widest uppercase elegant-number gradient-text transition-all duration-700 drop-shadow-md">20.06.2026</p>
           <motion.button 
@@ -567,7 +556,6 @@ const App = () => {
         </motion.div>
       </header>
 
-      {/* Invitation Section - Added ID for navigation */}
       <Section id="invitation" ref={nextSectionRef} className="bg-white group/invite" onMouseEnter={() => setIsInviteHovered(true)} onMouseLeave={() => setIsInviteHovered(false)}>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] md:h-[500px]">
@@ -577,20 +565,16 @@ const App = () => {
             <Heart className="text-[#B4A38D] mb-4 drop-shadow-sm" fill="#B4A38D" size={24} />
             <TypingText text={t.inviteTitle} className="text-4xl md:text-5xl font-light italic leading-tight drop-shadow-md" delay={0.3} />
             <div className="relative">
-              {/* Invitation Active Line: Added gradient fading edges */}
               <motion.div animate={{ width: isInviteHovered ? "85%" : "0%", opacity: isInviteHovered ? 1 : 0 }} transition={{ duration: 1.2, ease: "easeInOut" }} className="absolute inset-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#B4A38D] to-transparent rounded-full z-10 shadow-sm" />
-              {/* Invitation Passive Line: Added gradient fading edges */}
               <motion.div style={{ width: expandingLineWidth }} className="h-[2px] bg-gradient-to-r from-transparent via-[#B4A38D]/20 to-transparent rounded-full" />
             </div>
             <TypingText text={t.inviteText} className="text-xl md:text-2xl font-light leading-relaxed text-[#4A4A4A]/80 drop-shadow-sm" delay={0.8} />
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 2.2, duration: 1.2 }} className="text-lg italic font-light text-[#B4A38D] drop-shadow-sm">{t.inviteFooter}</motion.p>
-            {/* REMOVED uppercase class from here */}
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 2.8, duration: 1 }} className="pt-4"><p className="text-sm tracking-[0.3em] font-bold text-[#4A4A4A] drop-shadow-sm"> — {t.names}</p></motion.div>
           </div>
         </div>
       </Section>
 
-      {/* Countdown Section */}
       <div className="relative pt-32 pb-24 overflow-hidden border-t border-b border-[#B4A38D]/5 bg-[#FAF9F6]">
         <div className="absolute inset-0 -z-10 animate-gradient-slow bg-gradient-to-br from-[#F5E6E8] via-[#FAF9F6] to-[#E3E7D3] opacity-60" />
         <Section className="text-center relative !py-0 overflow-visible" ref={countdownRef}>
@@ -628,19 +612,13 @@ const App = () => {
                     <span className="text-4xl md:text-6xl elegant-number mb-2 leading-none text-[#B4A38D] block z-10 drop-shadow-sm">
                       {item.value}
                     </span>
-
-                    {/* Animated Separator Line */}
                     <motion.div 
                       variants={separatorVariants}
                       className="h-[1px] bg-[#B4A38D] my-2 z-10 shadow-sm" 
                     />
-
                     <div className="uppercase tracking-[0.2em] text-xs text-[#B4A38D]/60 z-10 drop-shadow-sm">
                       {item.label}
                     </div>
-                    
-                    {/* Fixed Animated Underline: appears on hover */}
-                    {/* Updated to have fading edges */}
                     <motion.div 
                       variants={lineVariants}
                       initial="hidden" 
@@ -650,8 +628,6 @@ const App = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Refined Horizon Line */}
             <div className="absolute -bottom-16 w-full flex justify-center items-center pointer-events-none">
               <motion.div 
                 style={{ width: expandingLineWidth }}
@@ -665,7 +641,6 @@ const App = () => {
         </Section>
       </div>
 
-      {/* Dress Code Section - Added ID for navigation */}
       <Section id="dresscode" className="bg-[#FAF9F6] overflow-hidden !pt-12">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div 
@@ -677,16 +652,13 @@ const App = () => {
             onMouseLeave={() => setIsDressCodeHovered(false)}
           >
             <div>
-              {/* Removed Palette Icon Container */}
               <h2 className="text-5xl md:text-6xl font-light mb-6 italic leading-tight text-[#4A4A4A] drop-shadow-md">{t.dressCodeTitle}</h2>
               <div className="relative w-full max-w-sm mb-6">
-                 {/* Dress Code Active Line: Added gradient fading edges */}
                  <motion.div 
                    animate={{ width: isDressCodeHovered ? "100%" : "0%", opacity: isDressCodeHovered ? 1 : 0 }} 
                    transition={{ duration: 1.2, ease: "easeInOut" }} 
                    className="absolute inset-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#B4A38D] to-transparent rounded-full z-10 shadow-sm" 
                  />
-                 {/* Dress Code Passive Line: Added gradient fading edges */}
                  <motion.div style={{ width: expandingLineWidth }} className="h-[2px] bg-gradient-to-r from-transparent via-[#B4A38D]/20 to-transparent rounded-full" />
               </div>
               <p className="text-lg text-[#4A4A4A]/80 font-light leading-relaxed mb-6 drop-shadow-sm">{t.dressCodeSubtitle}</p>
@@ -699,9 +671,8 @@ const App = () => {
                 </motion.button>
               ))}
             </div>
-            {/* Updated to use translations */}
             <motion.div 
-              key={`${activeDressIndex}-${lang}`} /* Added lang to key to trigger animation on language change */
+              key={`${activeDressIndex}-${lang}`} 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
@@ -730,7 +701,6 @@ const App = () => {
               </motion.div>
             </AnimatePresence>
             
-            {/* Carousel Navigation */}
             {DRESS_COLORS[activeDressIndex].images.length > 1 && (
               <>
                 <motion.button 
@@ -749,8 +719,6 @@ const App = () => {
                 >
                   <ChevronRight size={20} />
                 </motion.button>
-                
-                {/* Dots */}
                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
                   {DRESS_COLORS[activeDressIndex].images.map((_, idx) => (
                     <div 
@@ -765,7 +733,6 @@ const App = () => {
         </div>
       </Section>
 
-      {/* Location Section - Added ID for navigation */}
       <Section id="location" className="bg-[#FAF9F6] text-center !pt-0">
         <motion.div 
           initial={{ opacity: 0, y: 20 }} 
@@ -776,23 +743,18 @@ const App = () => {
           onMouseLeave={() => setIsWhenWhereHovered(false)}
         >
           <h2 className="text-4xl md:text-5xl font-light mb-4 italic drop-shadow-md">{t.whenWhereTitle}</h2>
-          
           <div className="relative h-[4px] flex justify-center items-center mb-4">
-             {/* Hover Fill Line - Added gradient fading edges */}
              <motion.div 
-               initial={{ width: 0, opacity: 0 }}
-               animate={{ width: isWhenWhereHovered ? "18rem" : "0%", opacity: isWhenWhereHovered ? 1 : 0 }} 
-               transition={{ duration: 1.2, ease: "easeInOut" }} 
-               className="absolute h-[2.5px] bg-gradient-to-r from-transparent via-[#B4A38D] to-transparent rounded-full z-10 shadow-sm" 
+                initial={{ width: 0, opacity: 0 }}
+                animate={{ width: isWhenWhereHovered ? "18rem" : "0%", opacity: isWhenWhereHovered ? 1 : 0 }} 
+                transition={{ duration: 1.2, ease: "easeInOut" }} 
+                className="absolute h-[2.5px] bg-gradient-to-r from-transparent via-[#B4A38D] to-transparent rounded-full z-10 shadow-sm" 
              />
-             
-             {/* Scroll Progress Line - Background - Added gradient fading edges */}
              <motion.div 
-               style={{ width: expandingLineWidth }} 
-               className="h-[2px] bg-gradient-to-r from-transparent via-[#B4A38D]/30 to-transparent rounded-full" 
+                style={{ width: expandingLineWidth }} 
+                className="h-[2px] bg-gradient-to-r from-transparent via-[#B4A38D]/30 to-transparent rounded-full" 
              />
           </div>
-
           <p className="text-lg text-[#4A4A4A]/70 font-light drop-shadow-sm">{t.whenWhereSubtitle}</p>
         </motion.div>
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -801,7 +763,6 @@ const App = () => {
         </div>
       </Section>
 
-      {/* RSVP Section - Added ID for navigation */}
       <Section id="rsvp" className="text-center pt-10 pb-32">
         <motion.div 
           initial={{ y: 0 }}
@@ -818,23 +779,18 @@ const App = () => {
               onMouseLeave={() => setIsRsvpHovered(false)}
             >
               <h2 className="text-4xl md:text-5xl font-light mb-4 italic text-[#4A4A4A] drop-shadow-md">{t.rsvpSectionTitle}</h2>
-              
               <div className="relative h-[4px] flex justify-center items-center mb-6">
-                 {/* Hover Fill Line */}
                  <motion.div 
                    initial={{ width: 0, opacity: 0 }}
                    animate={{ width: isRsvpHovered ? "12rem" : "0%", opacity: isRsvpHovered ? 1 : 0 }} 
                    transition={{ duration: 1.2, ease: "easeInOut" }} 
                    className="absolute h-[2.5px] bg-gradient-to-r from-transparent via-[#B4A38D] to-transparent rounded-full z-10 shadow-sm" 
                  />
-                 
-                 {/* Static Line */}
                  <motion.div 
                    style={{ width: expandingLineWidth }} 
                    className="h-[2px] bg-gradient-to-r from-transparent via-[#B4A38D]/30 to-transparent rounded-full" 
                  />
               </div>
-
               <p className="text-[#4A4A4A]/70 font-light drop-shadow-sm">{t.rsvpSubtitle}</p>
             </motion.div>
 
@@ -861,79 +817,67 @@ const App = () => {
                         className="space-y-6 text-left"
                     >
                         <div className="grid md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <input 
-                                    type="text" 
-                                    name="name"
-                                    required 
-                                    placeholder={t.nameLabel}
-                                    value={formState.name}
-                                    onChange={handleInputChange}
-                                    disabled={isSubmitting}
-                                    className="w-full bg-[#FAF9F6] border border-[#B4A38D]/20 rounded-full px-6 py-4 focus:outline-none focus:border-[#B4A38D] transition-colors placeholder-[#B4A38D]/70 text-[#4A4A4A] shadow-inner focus:shadow-md disabled:opacity-50"
-                                />
-                            </div>
-                            <div className="space-y-2">
-                                <input 
-                                    type="tel" 
-                                    name="phone"
-                                    required 
-                                    placeholder={t.phoneLabel}
-                                    value={formState.phone}
-                                    onChange={handleInputChange}
-                                    disabled={isSubmitting}
-                                    className="w-full bg-[#FAF9F6] border border-[#B4A38D]/20 rounded-full px-6 py-4 focus:outline-none focus:border-[#B4A38D] transition-colors placeholder-[#B4A38D]/70 text-[#4A4A4A] shadow-inner focus:shadow-md disabled:opacity-50"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <input 
-                                    type="email" 
-                                    name="email"
-                                    required 
-                                    placeholder={t.emailLabel}
-                                    value={formState.email}
-                                    onChange={handleInputChange}
-                                    disabled={isSubmitting}
-                                    className="w-full bg-[#FAF9F6] border border-[#B4A38D]/20 rounded-full px-6 py-4 focus:outline-none focus:border-[#B4A38D] transition-colors placeholder-[#B4A38D]/70 text-[#4A4A4A] shadow-inner focus:shadow-md disabled:opacity-50"
-                                />
-                            </div>
-                            <div className="space-y-2">
-                                <div className="relative">
-                                    <select 
-                                        name="guests"
-                                        required
-                                        value={formState.guests}
-                                        onChange={handleInputChange}
-                                        disabled={isSubmitting}
-                                        className={`w-full bg-[#FAF9F6] border border-[#B4A38D]/20 rounded-full px-6 py-4 appearance-none focus:outline-none focus:border-[#B4A38D] transition-colors cursor-pointer text-[#4A4A4A] ${formState.guests === '' ? 'text-[#B4A38D]/70' : ''} shadow-inner focus:shadow-md disabled:opacity-50`}
-                                    >
-                                        <option value="" disabled>{t.guestsLabel}</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="custom">{t.guestOptionCustom}</option>
-                                    </select>
-                                    <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 text-[#B4A38D] pointer-events-none drop-shadow-sm" size={16} />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="space-y-2">
-                            <textarea 
-                                name="message"
-                                rows="4"
-                                placeholder={t.messageLabel}
-                                value={formState.message}
+                            <input 
+                                type="text" 
+                                name="name"
+                                required 
+                                placeholder={t.nameLabel}
+                                value={formState.name}
                                 onChange={handleInputChange}
                                 disabled={isSubmitting}
-                                className="w-full bg-[#FAF9F6] border border-[#B4A38D]/20 rounded-[2rem] px-6 py-4 focus:outline-none focus:border-[#B4A38D] transition-colors resize-none placeholder-[#B4A38D]/70 text-[#4A4A4A] shadow-inner focus:shadow-md disabled:opacity-50"
-                            ></textarea>
+                                className="w-full bg-[#FAF9F6] border border-[#B4A38D]/20 rounded-full px-6 py-4 focus:outline-none focus:border-[#B4A38D] transition-colors placeholder-[#B4A38D]/70 text-[#4A4A4A] shadow-inner focus:shadow-md disabled:opacity-50"
+                            />
+                            <input 
+                                type="tel" 
+                                name="phone"
+                                required 
+                                placeholder={t.phoneLabel}
+                                value={formState.phone}
+                                onChange={handleInputChange}
+                                disabled={isSubmitting}
+                                className="w-full bg-[#FAF9F6] border border-[#B4A38D]/20 rounded-full px-6 py-4 focus:outline-none focus:border-[#B4A38D] transition-colors placeholder-[#B4A38D]/70 text-[#4A4A4A] shadow-inner focus:shadow-md disabled:opacity-50"
+                            />
                         </div>
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <input 
+                                type="email" 
+                                name="email"
+                                required 
+                                placeholder={t.emailLabel}
+                                value={formState.email}
+                                onChange={handleInputChange}
+                                disabled={isSubmitting}
+                                className="w-full bg-[#FAF9F6] border border-[#B4A38D]/20 rounded-full px-6 py-4 focus:outline-none focus:border-[#B4A38D] transition-colors placeholder-[#B4A38D]/70 text-[#4A4A4A] shadow-inner focus:shadow-md disabled:opacity-50"
+                            />
+                            <div className="relative">
+                                <select 
+                                    name="guests"
+                                    required
+                                    value={formState.guests}
+                                    onChange={handleInputChange}
+                                    disabled={isSubmitting}
+                                    className={`w-full bg-[#FAF9F6] border border-[#B4A38D]/20 rounded-full px-6 py-4 appearance-none focus:outline-none focus:border-[#B4A38D] transition-colors cursor-pointer text-[#4A4A4A] ${formState.guests === '' ? 'text-[#B4A38D]/70' : ''} shadow-inner focus:shadow-md disabled:opacity-50`}
+                                >
+                                    <option value="" disabled>{t.guestsLabel}</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="custom">{t.guestOptionCustom}</option>
+                                </select>
+                                <ChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 text-[#B4A38D] pointer-events-none drop-shadow-sm" size={16} />
+                            </div>
+                        </div>
+                        <textarea 
+                            name="message"
+                            rows="4"
+                            placeholder={t.messageLabel}
+                            value={formState.message}
+                            onChange={handleInputChange}
+                            disabled={isSubmitting}
+                            className="w-full bg-[#FAF9F6] border border-[#B4A38D]/20 rounded-[2rem] px-6 py-4 focus:outline-none focus:border-[#B4A38D] transition-colors resize-none placeholder-[#B4A38D]/70 text-[#4A4A4A] shadow-inner focus:shadow-md disabled:opacity-50"
+                        ></textarea>
                         
                         {submitError && (
                           <div className="text-red-500 text-sm text-center">
@@ -976,7 +920,6 @@ const App = () => {
           <div className="flex flex-col items-center md:items-end gap-4"><h5 className="uppercase text-xs tracking-widest text-[#B4A38D] mb-2 drop-shadow-sm">{t.footerEmail}</h5><a href="mailto:sedrak.heghine@gmail.com" className="flex items-center gap-3 text-lg hover:text-[#B4A38D] transition-colors font-light drop-shadow-sm"><Mail size={18} /> sedrak.heghine@gmail.com</a></div>
         </div>
 
-        {/* Bottom Banner */}
         <div className="max-w-4xl mx-auto px-6 pt-8 border-t border-[#B4A38D]/10 text-center space-y-3">
             <p className="text-lg italic font-light text-[#B4A38D] drop-shadow-sm">{t.footerNote}</p>
             <p className="text-[10px] uppercase tracking-widest text-[#4A4A4A]/30 drop-shadow-sm">{t.copyright}</p>
@@ -993,7 +936,6 @@ const App = () => {
         @keyframes gradient-slow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .animate-gradient-slow { background-size: 200% 200%; animation: gradient-slow 16s ease infinite; }
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap');
-        /* body rule kept for completeness, but the inline style on the div ensures it applies */
         body { font-family: 'Playfair Display', serif; }
         .elegant-number { font-family: 'Playfair Display', serif; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
         .gradient-text { background: linear-gradient(135deg, #B4A38D 0%, #D4C3AD 50%, #B4A38D 100%); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
