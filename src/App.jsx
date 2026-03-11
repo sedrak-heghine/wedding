@@ -808,8 +808,8 @@ const App = () => {
           <p className="text-lg text-[#4A4A4A]/70 font-light drop-shadow-sm">{t.whenWhereSubtitle}</p>
         </motion.div>
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <FlipCard title={t.ceremony} time="04:00 PM | 16:00" locationName={t.locationCeremony} mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3043.431206148383!2d44.3861218!3d40.339488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40156372d8e3b3ef%3A0xc3c9489608d0a0d4!2sOhanavank!5e0!3m2!1sen!2sam!4v1700000000000!5m2!1sen!2sam" navigateUrl="https://maps.app.goo.gl/TpTfwyUMEfWHEJij7" imageSrc={limg1} t={t} />
-          <FlipCard title={t.reception} time="05:30 PM | 17:30" locationName={t.locationReception} mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.2426466986514!2d44.183422476595854!3d40.2981081627376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4015629c490a604f%3A0xc6c7669d251d1020!2sLazur%20Restaurant!5e0!3m2!1sen!2sam!4v1700000000001!5m2!1sen!2sam" navigateUrl="https://maps.app.goo.gl/aN7tHkeDMxsKdRGf6" imageSrc={limg2} t={t} />
+          <FlipCard title={t.ceremony} time="3:30 PM | 15:30" locationName={t.locationCeremony} mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3043.431206148383!2d44.3861218!3d40.339488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40156372d8e3b3ef%3A0xc3c9489608d0a0d4!2sOhanavank!5e0!3m2!1sen!2sam!4v1700000000000!5m2!1sen!2sam" navigateUrl="https://maps.app.goo.gl/TpTfwyUMEfWHEJij7" imageSrc={limg1} t={t} />
+          <FlipCard title={t.reception} time="05:00 PM | 17:00" locationName={t.locationReception} mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.2426466986514!2d44.183422476595854!3d40.2981081627376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4015629c490a604f%3A0xc6c7669d251d1020!2sLazur%20Restaurant!5e0!3m2!1sen!2sam!4v1700000000001!5m2!1sen!2sam" navigateUrl="https://maps.app.goo.gl/aN7tHkeDMxsKdRGf6" imageSrc={limg2} t={t} />
         </div>
       </Section>
 
