@@ -200,9 +200,9 @@ const TRANSLATIONS = {
 };
 
 const IMAGES = [
-  "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1920"
+  "/media/1.jpg",
+  "/media/2.jpg",
+  "/media/3.jpg"
 ];
 
 const DRESS_COLORS = [
