@@ -19,7 +19,7 @@ import {
 
 import hero1 from '@media/1.jpg';
 import hero2 from '@media/2.jpg';
-import hero2 from '@media/3.jpg';
+import hero3 from '@media/3.jpg';
 
 // --- CONFIGURATION START ---
 // ԽՆԴՐՈՒՄ ԵՆՔ ԼՐԱՑՆԵԼ ԱՅՍ ՀԱՏՎԱԾԸ (Տես instructions.md)
