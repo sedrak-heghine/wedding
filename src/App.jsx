@@ -262,7 +262,12 @@ const TRANSLATIONS = {
   }
 };
 
-// Исправленные пути к изображениям (из папки public/media)
+const LANG_LABELS = {
+  en: 'ENG',
+  hy: 'ՀԱՅ',
+  ru: 'РУС'
+};
+
 const IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 const DRESS_COLORS = [
@@ -505,15 +510,6 @@ const App = () => {
   const yParallax = useTransform(scrollYProgress, [0, 0.5], [0, 200]);
   const opacityFade = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-  // Измененная логика для цикличного переключения между 3 языками
-  const toggleLang = () => {
-    setLang(prev => {
-      if (prev === 'en') return 'hy';
-      if (prev === 'hy') return 'ru';
-      return 'en';
-    });
-  };
-
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const nextSlide = () => {
@@ -572,6 +568,9 @@ const App = () => {
     }
   };
 
+  // Получаем доступные для выбора языки (исключая текущий)
+  const availableLangs = ['en', 'hy', 'ru'].filter(l => l !== lang);
+
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-[#4A4A4A] overflow-x-hidden" style={{ fontFamily: "'Playfair Display', serif" }}>
       
@@ -592,10 +591,19 @@ const App = () => {
           <button onClick={() => scrollToSection('rsvp')} className="hover:text-[#B4A38D] transition-colors">{t.navRsvp}</button>
         </div>
 
-        <div className="flex items-center gap-6">
-          <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={toggleLang} className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#B4A38D] text-sm tracking-widest hover:bg-[#B4A38D] hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
-            <Globe size={14} />{lang === 'en' ? 'ՀԱՅ' : lang === 'hy' ? 'РУС' : 'ENG'}
-          </motion.button>
+        <div className="flex items-center gap-3">
+          <Globe size={18} className="text-[#B4A38D] hidden sm:block drop-shadow-sm" />
+          {availableLangs.map((l) => (
+            <motion.button 
+              key={l}
+              whileHover={{ scale: 1.05 }} 
+              whileTap={{ scale: 0.95 }} 
+              onClick={() => setLang(l)} 
+              className="px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-[#B4A38D] text-xs md:text-sm tracking-widest hover:bg-[#B4A38D] hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
+            >
+              {LANG_LABELS[l]}
+            </motion.button>
+          ))}
         </div>
       </nav>
 
